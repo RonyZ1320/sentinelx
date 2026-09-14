@@ -1,0 +1,27 @@
+{
+  "name": "sentinelx",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-critic autonomous trading agent (PAPER TRADING ONLY) built for the Bitget AI Base Camp Hackathon S2 - Agentic Trading track, Event-Driven Agent direction.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "dist/cli.js",
+  "bin": {
+    "sentinelx": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:test": "tsc -p tsconfig.test.json",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "start": "npm run build && node dist/cli.js",
+    "demo": "npm run build && node dist/cli.js --cycles 24",
+    "test": "npm run build:test && node --test dist-test/test/*.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "typescript": "^5.5.4"
+  }
+}
